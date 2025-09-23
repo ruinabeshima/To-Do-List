@@ -1,7 +1,18 @@
 import './styles.css'
 
-function AddNoteSection(){
-  //
+function AddNoteSection(addButton, navBar, inputValue){
+  // Delete form 
+  const formDelete = document.querySelectorAll("#new-section-form")
+  formDelete.forEach(element => {
+    element.remove()
+  });
+
+  // Create new section 
+  const newButton = document.createElement("button")
+  newButton.textContent = inputValue
+  newButton.id = inputValue.toLowerCase() + "-button"
+  newButton.classList.add("nav-button")
+  navBar.insertBefore(newButton, addButton)
 }
 
 function AddNoteSectionForm(addButton){
@@ -14,6 +25,7 @@ function AddNoteSectionForm(addButton){
   // Creates a form to make a new note section  
   const navBar = document.getElementById("navbar")
   const navForm = document.createElement("form")
+  navForm.id = "new-section-form"
   navBar.insertBefore(navForm, addButton)
   
   const formInput = document.createElement("input")
@@ -31,7 +43,7 @@ function AddNoteSectionForm(addButton){
   submitForm.appendChild(tickMark)
 
   // Event listener for submitting form 
-  tickMark.addEventListener("click", () => AddNoteSection())
+  submitForm.addEventListener("click", () => AddNoteSection(addButton, navBar, formInput.value))
 }
 
 function DOMElements(){
