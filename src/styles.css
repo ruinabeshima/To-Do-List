@@ -12,14 +12,14 @@ body {
 }
 
 header {
-  width: 15%; 
+  width: 20%; 
   text-align: center; 
   border: 0.15rem solid black;
-  background-color: pink; 
+  background-color: beige; 
 }
 
 #main {
-  width: 85%; 
+  width: 80%; 
 }
 
 #page-title {
@@ -27,6 +27,7 @@ header {
 }
 
 #content-title {
+  height: 20%; 
   text-align: center; 
   padding: 2rem;
   border-top: 0.15rem solid black;
@@ -98,4 +99,33 @@ header {
 
 #submit-section:hover {
   background-color: rgb(192, 191, 191); 
+}
+
+.grid-container {
+  padding: 2rem; 
+  height: 70%; 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem; 
+}
+
+.button-container {
+  height: 10%; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+#add-task {
+  padding: 0.5rem; 
+  background-color: beige; 
+  border-radius: 0.15rem; 
+  border: 0.15rem solid grey; 
+}
+
+#add-task:hover {
+  transition: 0.5s; 
+  background-color: rgb(200, 200, 181); 
+  cursor: pointer; 
 }
