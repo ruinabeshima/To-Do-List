@@ -26,7 +26,7 @@ navbar {
   gap: 1rem; 
 }
 
-.nav-button {
+.nav-button, #section-input {
   font-size: 1rem;
   color: grey; 
   width: 2.75rem; 
@@ -35,9 +35,20 @@ navbar {
   border-bottom: 0.15rem solid grey;
 }
 
+#section-input {
+  color: black; 
+  border-bottom: 0.15rem solid black;
+}
+
+#section-input:focus {
+  outline: none; 
+  caret-color: grey; 
+}
+
 .nav-button:hover {
   color: black; 
   border-bottom: 0.15rem solid black; 
+  transition: 0.5s; 
 }
 
 #add-button {
@@ -56,4 +67,17 @@ navbar {
   background-color: rgb(203, 202, 202); 
   color: black; 
   border: 0.15rem solid black; 
+}
+
+#submit-section {
+  width: 1.5rem; 
+  height: 1.5rem; 
+  border-radius: 0.5rem; 
+  margin-left: 0.25rem; 
+  color: black; 
+  border: 0.15rem solid black; 
+}
+
+#submit-section:hover {
+  background-color: rgb(192, 191, 191); 
 }
