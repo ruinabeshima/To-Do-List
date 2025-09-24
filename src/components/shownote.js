@@ -1,9 +1,11 @@
 import { globalState } from "..";
 
+
 export function AddNote(newNote){
   globalState.sections[globalState.activeSection].push(newNote)
   NoteSort()
 }
+
 
 // Bubble Sort 
 function NoteSort(){
@@ -21,6 +23,7 @@ function NoteSort(){
   }
   ShowNote()
 } 
+
 
 export function ShowNote(){
 

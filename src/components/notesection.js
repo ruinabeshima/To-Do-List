@@ -3,6 +3,7 @@ import { ShowNote } from "./shownote"
 
 
 export function ShowMainContent(){
+
   // Adding grid container
   const mainContent = document.getElementById("main")
   const gridContainer = document.createElement("div")
@@ -36,9 +37,10 @@ function ShowOtherContent(sectionName){
 export function MainContentListener(){
   const mainButton = document.getElementById("main-button")
   mainButton.addEventListener("click", () => {
-    ShowMainContent()
+    ShowOtherContent("main")
   })
 }
+
 
 export function AddSectionListener(){
   const addButton = document.getElementById("add-button")
@@ -46,6 +48,7 @@ export function AddSectionListener(){
     NoteSectionForm(addButton)
   })
 }
+
 
 function NoteSectionForm(addButton){
 
@@ -78,6 +81,7 @@ function NoteSectionForm(addButton){
   // Event listener for submitting form 
   submitForm.addEventListener("click", () => AddNoteSection(addButton, navBar, formInput.value))
 }
+
 
 function AddNoteSection(addButton, navBar, inputValue){
   // Delete form 
