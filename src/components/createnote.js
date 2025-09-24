@@ -26,12 +26,14 @@ function CreateNoteForm(){
   const noteTitle = document.createElement("input")
   noteTitle.type = "text"
   noteTitle.id = "note-title"
+  noteTitle.placeholder = "Title"
   noteTitle.required = true
 
   // Description
   const noteDesc = document.createElement("input")
   noteDesc.type = "text"
   noteDesc.id = "note-desc"
+  noteDesc.placeholder = "Description"
 
   // Due Date
   const noteDueDate = document.createElement("input")
@@ -62,7 +64,7 @@ function CreateNoteForm(){
   createButton.textContent = "Create"
 
   // Adding elements to form 
-  const elements = [noteTitle, noteDesc, noteDueDate, notePriority, createButton]
+  const elements = [noteTitle, noteDesc, notePriority, noteDueDate, createButton]
   elements.forEach(element => {
     noteForm.append(element)
   });

@@ -41,7 +41,7 @@ body {
   margin: 0 auto; 
   display: grid; 
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(150px, 1fr)); 
+  grid-template-rows: repeat(auto-fill, minmax(180px, 1fr)); 
   gap: 1rem;
   margin-top: 4rem; 
 }
@@ -51,4 +51,61 @@ body {
   justify-content: center; 
   align-items: center; 
   margin-top: 4rem; 
+}
+
+#note-form , .note {
+  background-color: rgba(227, 237, 240, 0.464); 
+  padding: 1rem; 
+  border-radius: 1rem; 
+  box-shadow: 8px 5px 15px 5px rgba(0,0,0,0.24)
+}
+
+input , select {
+  border: none; 
+  background: transparent; 
+  margin-bottom: 0.15rem; 
+}
+
+#note-duedate {
+  color: transparent
+}
+
+#note-priority {
+  width: 9rem; 
+  color: grey;
+  appearance: none;
+}
+
+#note-priority:hover {
+  cursor: pointer; 
+}
+
+#note-duedate::-webkit-calendar-picker-indicator {
+  filter: greyscale(1);
+  opacity: 0.5; 
+  position: relative;
+  right: 9.3rem;
+  top: 0;
+  width: 10rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+input:focus, select:focus {
+  outline: none; 
+}
+
+#create-note {
+  height: 1.5rem; 
+  text-align: center; 
+  width: 3rem; 
+  background-color: rgb(168, 237, 168);
+  border: none; 
+  padding: 0.15rem; 
+  border-radius: 0.1rem; 
+}
+
+#create-note:hover {
+  cursor: pointer; 
+  border: 0.15rem solid green; 
 }
