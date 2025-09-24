@@ -59,7 +59,7 @@ header {
   width: 3.25rem;
 }
 
-#section-input:focus {
+#section-input:focus, .task-form > input:focus {
   outline: none; 
   caret-color: grey; 
 }
@@ -83,6 +83,7 @@ header {
 }
 
 #add-button:hover {
+  transition: 0.5s; 
   background-color: rgb(203, 202, 202); 
   color: black; 
   border: 0.15rem solid black; 
@@ -101,7 +102,7 @@ header {
   background-color: rgb(192, 191, 191); 
 }
 
-.grid-container {
+#grid-container {
   padding: 2rem; 
   height: 70%; 
   display: grid; 
@@ -128,4 +129,26 @@ header {
   transition: 0.5s; 
   background-color: rgb(200, 200, 181); 
   cursor: pointer; 
+}
+
+.task-form {
+  background-color: beige;
+  border-radius: 0.15rem; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  gap: 0.15rem; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.task-form > input {
+  margin-left: 1rem; 
+  width: 70%; 
+  border: none; 
+  background: none; 
+  border-bottom: 0.15rem solid black; 
+}
+
+#task-title-input {
+  margin-bottom: 1rem; 
 }
