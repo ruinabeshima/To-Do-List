@@ -141,7 +141,7 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.task-form > input, #calendar-button {
+.task-form > input {
   margin-left: 1rem; 
   width: 70%; 
   border: none; 
@@ -157,22 +157,7 @@ header {
   font-size: 2rem; 
 }
 
-#task-due-input{
-  display: none; 
-}
-
-#calendar-button {
-  margin-top: 1rem; 
-  border: 0.15rem solid #ffffffc4; 
+#create-task-submit {
   height: 2rem; 
-  width: 2rem; 
-  padding: 0.15rem; 
-  border-radius: 1.5rem; 
+  width: 3rem; 
 }
-
-#calendar-button:hover {
-  background-color: rgb(108, 108, 223);
-  cursor: pointer; 
-}
-
-

@@ -1,16 +1,8 @@
-import './styles.css'
-import { AddNoteSectionForm } from './components/notesection'
-import calendar from "./assets/calendar.svg"
-import { TaskForm, ShowCalendar } from './components/addtask'
+import "./styles.css"
+import { AddTaskListener } from "./components/createnote"
 
-(function DOMElements(){
-  const addButton = document.getElementById("add-button")
-  addButton.addEventListener("click", () => AddNoteSectionForm(addButton))
+document.addEventListener("DOMContentLoaded", () => {
+  AddTaskListener()
+})
 
-  const addTask = document.getElementById("add-task")
-  addTask.addEventListener("click", () => TaskForm(calendar))
-
-  const calendarButton = document.getElementById("calendar-button")
-  calendarButton.addEventListener("click", () => ShowCalendar())
-})()
 
