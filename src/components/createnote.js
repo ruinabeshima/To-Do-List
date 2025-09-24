@@ -1,4 +1,5 @@
-import { ShowNote } from "./shownote"
+import { AddNote } from "./shownote"
+
 
 export function AddTaskListener(){
   // Event listener for add button
@@ -41,13 +42,13 @@ function CreateNoteForm(){
   const notePriority = document.createElement("select")
   notePriority.id = "note-priority"
   const option1 = document.createElement("option")
-  option1.value = "high"
+  option1.value = "1"
   option1.textContent = "High Priority"
   const option2 = document.createElement("option")
-  option2.value = "medium"
+  option2.value = "2"
   option2.textContent = "Medium Priority"
   const option3 = document.createElement("option")
-  option3.value = "low"
+  option3.value = "3"
   option3.textContent = "Low Priority"
 
   const options = [option1, option2, option3]
@@ -88,7 +89,7 @@ function CreateNote(title, desc, dueDate, priority){
     const uniqueID = crypto.randomUUID()
     return {uniqueID, title, desc, dueDate, priority}
   }()
-  ShowNote(newNote)
+  AddNote(newNote)
 }
 
 
