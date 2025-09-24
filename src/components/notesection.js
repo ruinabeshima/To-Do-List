@@ -1,19 +1,54 @@
-function AddNoteSection(addButton, navBar, inputValue){
-  // Delete form 
-  const formDelete = document.querySelectorAll("#new-section-form")
-  formDelete.forEach(element => {
-    element.remove()
-  });
+import { globalState } from ".."
+import { ShowNote } from "./shownote"
 
-  // Create new section 
-  const newButton = document.createElement("button")
-  newButton.textContent = inputValue
-  newButton.id = inputValue.toLowerCase() + "-button"
-  newButton.classList.add("nav-button")
-  navBar.insertBefore(newButton, addButton)
+
+export function ShowMainContent(){
+  // Adding grid container
+  const mainContent = document.getElementById("main")
+  const gridContainer = document.createElement("div")
+  const buttonContainer = document.getElementById("button-container")
+  gridContainer.id = "grid-container"
+  mainContent.insertBefore(gridContainer, buttonContainer)
+
+  // Setting active section 
+  globalState.activeSection = "main"
+  ShowNote(globalState.activeSection)
 }
 
-export function AddNoteSectionForm(addButton){
+
+function ShowOtherContent(sectionName){
+  // Deletes previous grid
+  const gridContainerRemove = document.querySelector("#grid-container")
+  gridContainerRemove.remove()
+
+  // New grid container
+  const mainContent = document.getElementById("main")
+  const gridContainer = document.createElement("div")
+  const buttonContainer = document.getElementById("button-container")
+  gridContainer.id = "grid-container"
+  mainContent.insertBefore(gridContainer, buttonContainer)
+
+  globalState.activeSection = sectionName
+  ShowNote(globalState.activeSection)
+}
+
+
+export function MainContentListener(){
+  const mainButton = document.getElementById("main-button")
+  mainButton.addEventListener("click", () => {
+    ShowMainContent()
+  })
+}
+
+export function AddSectionListener(){
+  const addButton = document.getElementById("add-button")
+  addButton.addEventListener("click", () => {
+    NoteSectionForm(addButton)
+  })
+}
+
+function NoteSectionForm(addButton){
+
   // Delete pre-existing forms 
   const formDelete = document.querySelectorAll("#section-input")
   formDelete.forEach(element => {
@@ -43,3 +78,27 @@ export function AddNoteSectionForm(addButton){
   // Event listener for submitting form 
   submitForm.addEventListener("click", () => AddNoteSection(addButton, navBar, formInput.value))
 }
+
+function AddNoteSection(addButton, navBar, inputValue){
+  // Delete form 
+  const formDelete = document.querySelectorAll("#new-section-form")
+  formDelete.forEach(element => {
+    element.remove()
+  });
+
+  // Create new section button
+  const newButton = document.createElement("button")
+  newButton.textContent = inputValue
+  newButton.id = inputValue.toLowerCase() + "-button"
+  newButton.classList.add("nav-button")
+  navBar.insertBefore(newButton, addButton)
+
+  // Create new sections object with array
+  globalState.sections[inputValue.toLowerCase()] = [];
+
+  // Event listener 
+  newButton.addEventListener("click", () => {
+    ShowOtherContent(inputValue.toLowerCase())
+  })
+}
+

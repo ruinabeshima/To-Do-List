@@ -1,20 +1,20 @@
 import { globalState } from "..";
 
 export function AddNote(newNote){
-  globalState.tasks.push(newNote)
-  console.log(globalState)
+  globalState.sections[globalState.activeSection].push(newNote)
   NoteSort()
 }
 
 // Bubble Sort 
 function NoteSort(){
-  if (globalState.tasks.length > 1){
+  const x = globalState.activeSection
+  if (globalState.sections[x].length > 1){
     let index = 0 
-    while (index < globalState.tasks.length - 1){
-      if (globalState.tasks[index].priority > globalState.tasks[index + 1].priority){
-        const temp = globalState.tasks[index + 1]
-        globalState.tasks[index + 1] = globalState.tasks[index]
-        globalState.tasks[index] = temp 
+    while (index < globalState.sections[x].length - 1){
+      if (globalState.sections[x][index].priority > globalState.sections[x][index + 1].priority){
+        const temp = globalState.sections[x][index + 1]
+        globalState.sections[x][index + 1] = globalState.sections[x][index]
+        globalState.sections[x][index] = temp 
       }
       index += 1
     } 
@@ -22,7 +22,7 @@ function NoteSort(){
   ShowNote()
 } 
 
-function ShowNote(){
+export function ShowNote(){
 
   // Delete form
   const formDelete = document.querySelectorAll("#note-form")
@@ -36,7 +36,7 @@ function ShowNote(){
     element.remove()
   })
 
-  globalState.tasks.forEach(element => {
+  globalState.sections[globalState.activeSection].forEach(element => {
     // Whole note
     const gridContainer = document.getElementById("grid-container")
     const note = document.createElement("div")

@@ -26,15 +26,6 @@ header {
   padding: 2rem; 
 }
 
-#content-title {
-  height: 20%; 
-  text-align: center; 
-  padding: 2rem;
-  border-top: 0.15rem solid black;
-  border-bottom: 0.15rem solid black; 
-  border-right: 0.15rem solid black;  
-}
-
 #navbar {
   height: auto; 
   display: flex; 
@@ -111,7 +102,7 @@ header {
   gap: 0.5rem; 
 }
 
-.button-container {
+#button-container {
   height: 10%; 
   display: flex; 
   justify-content: center; 

@@ -1,5 +1,5 @@
 import { AddNote } from "./shownote"
-
+import { globalState } from ".."
 
 export function AddTaskListener(){
   // Event listener for add button
