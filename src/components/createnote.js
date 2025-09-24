@@ -1,3 +1,5 @@
+import { ShowNote } from "./shownote"
+
 export function AddTaskListener(){
   // Event listener for add button
   const addTask = document.getElementById("add-task")
@@ -36,9 +38,22 @@ function CreateNoteForm(){
   noteDueDate.id = "note-duedate"
 
   // Priority
-  const notePriority = document.createElement("input")
-  notePriority.type = "text"
+  const notePriority = document.createElement("select")
   notePriority.id = "note-priority"
+  const option1 = document.createElement("option")
+  option1.value = "high"
+  option1.textContent = "High Priority"
+  const option2 = document.createElement("option")
+  option2.value = "medium"
+  option2.textContent = "Medium Priority"
+  const option3 = document.createElement("option")
+  option3.value = "low"
+  option3.textContent = "Low Priority"
+
+  const options = [option1, option2, option3]
+  options.forEach(element => {
+    notePriority.appendChild(element)
+  });
 
   // Create Button 
   const createButton = document.createElement("button")
@@ -76,37 +91,5 @@ function CreateNote(title, desc, dueDate, priority){
   ShowNote(newNote)
 }
 
-function ShowNote(newNote){
-  // Delete form
-  const formDelete = document.querySelectorAll("#note-form")
-  formDelete.forEach(element => {
-    element.remove()
-  });
 
-  // Whole note
-  const gridContainer = document.getElementById("grid-container")
-  const note = document.createElement("div")
-  note.class = "note"
-  gridContainer.appendChild(note)
-
-  // Title 
-  const noteTitle = document.createElement("h1")
-  noteTitle.textContent = newNote.title
-  note.appendChild(noteTitle)
-
-  // Description
-  const noteDesc = document.createElement("p")
-  noteDesc.textContent = newNote.desc
-  note.appendChild(noteDesc)
-
-  // Due Date
-  const noteDueDate = document.createElement("p")
-  noteDueDate.textContent = newNote.dueDate
-  note.appendChild(noteDueDate)
-
-  // Priority
-  const notePriority = document.createElement("p")
-  notePriority.textContent = newNote.priority
-  note.appendChild(notePriority)
-}
 
