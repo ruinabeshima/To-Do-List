@@ -1,4 +1,4 @@
-export function TaskForm(){
+export function TaskForm(calendar){
   const gridContainer = document.getElementById("grid-container")
 
   // Delete existing forms 
@@ -17,20 +17,27 @@ export function TaskForm(){
   taskTitle.type = "input"
   taskTitle.id = "task-title-input"
   taskTitle.placeholder = "Title"
+  taskTitle.required = true
+
   const taskDesc = document.createElement("input")
   taskDesc.type = "input"
   taskDesc.id = "task-desc-input"
   taskDesc.placeholder = "Description"
+
   const taskDue = document.createElement("input")
-  taskDue.type = "datetime-local"
-  taskDue.id = "task-due-input"
-  const taskPriority = document.createElement("input")
-  taskPriority.setAttribute("list", "priorities") 
-  taskPriority.id = "task-priority-input"
+  taskDue.value = ""
+
+  const calendarIMG = document.createElement("img")
+  calendarIMG.src = calendar
+  calendarIMG.id = "calendar-button"
 
   // DOM manipulation
-  const inputs = [taskTitle, taskDesc, taskDue, taskPriority]
+  const inputs = [taskTitle, taskDesc, taskDue, calendarIMG]
   inputs.forEach(element => {
     taskForm.appendChild(element)
   })
+}
+
+export function ShowCalendar(){
+  console.log("Hleo")
 }

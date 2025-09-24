@@ -15,7 +15,7 @@ header {
   width: 20%; 
   text-align: center; 
   border: 0.15rem solid black;
-  background-color: beige; 
+  background-color: rgba(113, 184, 123, 0.65); 
 }
 
 #main {
@@ -61,7 +61,7 @@ header {
 
 #section-input:focus, .task-form > input:focus {
   outline: none; 
-  caret-color: grey; 
+  caret-color: white; 
 }
 
 .nav-button:hover {
@@ -106,8 +106,8 @@ header {
   padding: 2rem; 
   height: 70%; 
   display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
   gap: 0.5rem; 
 }
 
@@ -132,8 +132,8 @@ header {
 }
 
 .task-form {
-  background-color: beige;
-  border-radius: 0.15rem; 
+  background-color: rgba(2, 113, 193, 1);
+  border-radius: 1.25rem; 
   display: flex;
   flex-direction: column; 
   justify-content: center; 
@@ -141,14 +141,38 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.task-form > input {
+.task-form > input, #calendar-button {
   margin-left: 1rem; 
   width: 70%; 
   border: none; 
-  background: none; 
-  border-bottom: 0.15rem solid black; 
+  background: none;
+  color: white; 
+}
+
+.task-form > input::placeholder {
+  color: #ffffffc4; 
 }
 
 #task-title-input {
-  margin-bottom: 1rem; 
+  font-size: 2rem; 
 }
+
+#task-due-input{
+  display: none; 
+}
+
+#calendar-button {
+  margin-top: 1rem; 
+  border: 0.15rem solid #ffffffc4; 
+  height: 2rem; 
+  width: 2rem; 
+  padding: 0.15rem; 
+  border-radius: 1.5rem; 
+}
+
+#calendar-button:hover {
+  background-color: rgb(108, 108, 223);
+  cursor: pointer; 
+}
+
+
