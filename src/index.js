@@ -1,19 +1,21 @@
-import "./styles.css"
-import { AddTaskListener } from "./components/createnote"
-import { ShowMainContent, AddSectionListener, MainContentListener } from "./components/notesection"
+import "./styles.css";
+import { AddTaskListener } from "./components/createnote";
+import {
+  ShowMainContent,
+  AddSectionListener,
+  MainContentListener,
+} from "./components/notesection";
 
 export const globalState = {
   sections: {
-    "main": [], 
-  }, 
-  activeSection: null
-}
+    main: [],
+  },
+  activeSection: null,
+};
 
 document.addEventListener("DOMContentLoaded", () => {
-  ShowMainContent()
-  MainContentListener()
-  AddTaskListener()
-  AddSectionListener()
-})
-
-
+  ShowMainContent();
+  MainContentListener();
+  AddTaskListener();
+  AddSectionListener();
+});
