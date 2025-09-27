@@ -38,6 +38,7 @@ header {
 }
 
 .nav-button {
+  border: 1px solid black; 
   width: 80%; 
   height: 3rem; 
   padding-top: 1rem; 
@@ -71,11 +72,12 @@ header {
 }
 
 #section-input {
-  background: transparent; 
-  border: none; 
+  background: none;
+  border: 1px solid black; 
   height: 100%; 
   width: 100%; 
   padding: 0.5rem; 
+  border-radius: 0.5rem; 
 }
 
 #section-input:focus {
@@ -244,5 +246,9 @@ header {
 }
 
 .note-show-title:hover {
+  cursor: pointer; 
+}
+
+.nav-button:hover {
   cursor: pointer; 
 }

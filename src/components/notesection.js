@@ -28,6 +28,7 @@ function ShowOtherContent(sectionName) {
 
   globalState.activeSection = sectionName;
   ShowNote(globalState.activeSection);
+  HighlightSection()
 }
 
 export function MainContentListener() {
@@ -90,4 +91,14 @@ function AddNoteSection(addButton, navBar, inputValue) {
   newButton.addEventListener("click", () => {
     ShowOtherContent(inputValue.toLowerCase());
   });
+}
+
+export function HighlightSection(){
+  const navButton = document.querySelectorAll(".nav-button")
+  navButton.forEach(element => {
+    element.style.backgroundColor = ""
+  })
+  const activeAreaId = globalState.activeSection + "-button"
+  const activeArea = document.getElementById(activeAreaId)
+  activeArea.style.backgroundColor = "rgb(158, 192, 255)"
 }

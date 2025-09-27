@@ -4,6 +4,7 @@ import {
   ShowMainContent,
   AddSectionListener,
   MainContentListener,
+  HighlightSection
 } from "./components/notesection";
 
 export const globalState = {
@@ -15,6 +16,7 @@ export const globalState = {
 
 document.addEventListener("DOMContentLoaded", () => {
   ShowMainContent();
+  HighlightSection()
   MainContentListener();
   AddTaskListener();
   AddSectionListener();
