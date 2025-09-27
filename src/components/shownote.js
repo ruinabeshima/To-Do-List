@@ -46,29 +46,31 @@ export function ShowNote() {
     gridContainer.appendChild(note);
 
     // Title
-    const noteTitle = document.createElement("h1");
+    const noteTitle = document.createElement("p");
     noteTitle.textContent = element.title;
     note.appendChild(noteTitle);
 
-    // Description
-    const noteDesc = document.createElement("p");
-    noteDesc.textContent = element.desc;
-    note.appendChild(noteDesc);
+    // Container
+    const noteButtonContainer = document.createElement("div")
+    noteButtonContainer.classList.add("note-button-container")
+    note.appendChild(noteButtonContainer)
 
-    // Due Date
-    const noteDueDate = document.createElement("p");
-    noteDueDate.textContent = element.dueDate;
-    note.appendChild(noteDueDate);
+    // Description and Due Date
+    const noteDesc = document.createElement("button");
+    noteDesc.textContent = "i"
+    noteDesc.classList.add("note-desc-button")
+    noteButtonContainer.appendChild(noteDesc);
 
     // Priority
-    const notePriority = document.createElement("p");
+    const notePriority = document.createElement("button");
     if (element.priority === "1") {
-      notePriority.textContent = "High Priority";
+      notePriority.style.backgroundColor = "green"
     } else if (element.priority === "2") {
-      notePriority.textContent = "Medium Priority";
+      notePriority.style.backgroundColor = "orange"
     } else if (element.priority === "3") {
-      notePriority.textContent = "Low Priority";
+      notePriority.style.backgroundColor = "red"
     }
-    note.appendChild(notePriority);
+    notePriority.classList.add("note-priority-button")
+    noteButtonContainer.appendChild(notePriority);
   });
 }

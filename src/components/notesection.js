@@ -63,16 +63,8 @@ function NoteSectionForm(addButton) {
   formInput.required = true;
   navForm.appendChild(formInput);
 
-  const submitForm = document.createElement("button");
-  submitForm.id = "submit-section";
-  navForm.appendChild(submitForm);
-
-  const tickMark = document.createElement("p");
-  tickMark.textContent = "✓";
-  submitForm.appendChild(tickMark);
-
   // Event listener for submitting form
-  submitForm.addEventListener("click", () =>
+  navForm.addEventListener("submit", () =>
     AddNoteSection(addButton, navBar, formInput.value),
   );
 }

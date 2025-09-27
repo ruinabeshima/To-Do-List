@@ -1,5 +1,4 @@
 import { AddNote } from "./shownote";
-import { globalState } from "..";
 
 export function AddTaskListener() {
   // Event listener for add button
@@ -11,16 +10,25 @@ export function AddTaskListener() {
 
 function CreateNoteForm() {
   // Delete previous forms
-  const formDelete = document.querySelectorAll("#note-form");
+  const formDelete = document.querySelectorAll("#new-dialog");
   formDelete.forEach((element) => {
     element.remove();
   });
 
+  // Dialog
+  const main = document.getElementById("main");
+  const newDialog = document.createElement("dialog")
+  newDialog.id = "new-dialog"
+  main.appendChild(newDialog)
+
   // Form
-  const gridContainer = document.getElementById("grid-container");
   const noteForm = document.createElement("form");
   noteForm.id = "note-form";
-  gridContainer.appendChild(noteForm);
+  newDialog.appendChild(noteForm);
+
+  const newNote = document.createElement("p")
+  newNote.textContent = "New Note"
+  newNote.id = "create-note-title"
 
   // Title
   const noteTitle = document.createElement("input");
@@ -30,8 +38,7 @@ function CreateNoteForm() {
   noteTitle.required = true;
 
   // Description
-  const noteDesc = document.createElement("input");
-  noteDesc.type = "text";
+  const noteDesc = document.createElement("textarea");
   noteDesc.id = "note-desc";
   noteDesc.placeholder = "Description";
 
@@ -59,12 +66,14 @@ function CreateNoteForm() {
   });
 
   // Create Button
-  const createButton = document.createElement("button");
+  const createButton = document.createElement("input");
+  createButton.type = "submit"
   createButton.id = "create-note";
-  createButton.textContent = "Create";
+  createButton.value = "Create";
 
   // Adding elements to form
   const elements = [
+    newNote,
     noteTitle,
     noteDesc,
     notePriority,
@@ -75,6 +84,8 @@ function CreateNoteForm() {
     noteForm.append(element);
   });
 
+  newDialog.showModal()
+
   CreateTaskListener();
 }
 
@@ -84,10 +95,12 @@ function CreateTaskListener() {
   const desc = document.getElementById("note-desc");
   const dueDate = document.getElementById("note-duedate");
   const priority = document.getElementById("note-priority");
-  const createNote = document.getElementById("create-note");
+  const noteForm = document.getElementById("note-form");
+  const newDialog = document.getElementById("new-dialog")
 
-  createNote.addEventListener("click", () => {
+  noteForm.addEventListener("submit", (event) => {
     event.preventDefault();
+    newDialog.close()
     CreateNote(title.value, desc.value, dueDate.value, priority.value);
   });
 }
