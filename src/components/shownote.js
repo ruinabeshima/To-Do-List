@@ -1,4 +1,5 @@
 import { globalState } from "..";
+import { format } from 'date-fns';
 
 export function AddNote(newNote) {
   globalState.sections[globalState.activeSection].push(newNote);
@@ -128,7 +129,7 @@ function ShowNoteInfo(element){
   if (element.dueDate === ""){
     dialogDate.textContent = "No date added"
   } else {
-    dialogDate.textContent = element.dueDate
+    dialogDate.textContent = format(element.dueDate, 'yyyy-MM-dd')
   }
   textDiv.appendChild(dialogDate)
 
