@@ -108,7 +108,8 @@ function CreateTaskListener() {
 function CreateNote(title, desc, dueDate, priority) {
   const newNote = (function NoteObject() {
     const uniqueID = crypto.randomUUID();
-    return { uniqueID, title, desc, dueDate, priority };
+    const done = false
+    return { uniqueID, title, desc, dueDate, priority, done };
   })();
   AddNote(newNote);
 }

@@ -48,7 +48,26 @@ export function ShowNote() {
     // Title
     const noteTitle = document.createElement("p");
     noteTitle.textContent = element.title;
+    noteTitle.classList.add("note-show-title")
     note.appendChild(noteTitle);
+    
+    if (element.done) {
+      noteTitle.style.color = "grey";
+      noteTitle.style.textDecoration = "line-through";
+      note.style.boxShadow = "none"
+    }
+
+    noteTitle.addEventListener("click", () => {
+      element.done = !element.done; 
+      if (element.done) {
+        noteTitle.style.color = "grey";
+        noteTitle.style.textDecoration = "line-through";
+        note.style.boxShadow = "none"
+      } else {
+        noteTitle.style.color = "black";
+        noteTitle.style.textDecoration = "none";
+      }
+    });
 
     // Container
     const noteButtonContainer = document.createElement("div")
@@ -61,6 +80,11 @@ export function ShowNote() {
     noteDesc.classList.add("note-desc-button")
     noteButtonContainer.appendChild(noteDesc);
 
+
+    noteDesc.addEventListener("click", () => {
+      ShowNoteInfo(element)
+    })
+
     // Priority
     const notePriority = document.createElement("button");
     if (element.priority === "1") {
@@ -72,5 +96,51 @@ export function ShowNote() {
     }
     notePriority.classList.add("note-priority-button")
     noteButtonContainer.appendChild(notePriority);
+
   });
+
+}
+
+function ShowNoteInfo(element){
+  const formDelete = document.querySelectorAll(".info-dialog");
+  formDelete.forEach((element) => {
+    element.remove();
+  });
+
+  const main = document.getElementById("main")
+  const infoDialog = document.createElement("dialog")
+  infoDialog.classList.add("info-dialog")
+  main.appendChild(infoDialog)
+
+  const textDiv = document.createElement("div")
+  textDiv.classList.add("dialog-desc-div")
+  infoDialog.appendChild(textDiv)
+
+  const dialogDesc = document.createElement("p")
+  if (element.desc === ""){
+    dialogDesc.textContent = "No description added"
+  } else {
+    dialogDesc.textContent = element.desc
+  }
+  textDiv.appendChild(dialogDesc)
+
+  const dialogDate = document.createElement("p")
+  if (element.dueDate === ""){
+    dialogDate.textContent = "No date added"
+  } else {
+    dialogDate.textContent = element.dueDate
+  }
+  textDiv.appendChild(dialogDate)
+
+  const closeButton = document.createElement("button");
+  closeButton.id = "close-note";
+  closeButton.textContent = "Close";
+  textDiv.appendChild(closeButton)
+
+  closeButton.addEventListener("click", () => {
+    infoDialog.close()
+    infoDialog.remove()
+  })
+
+  infoDialog.showModal()
 }
