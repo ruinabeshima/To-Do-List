@@ -67,6 +67,7 @@ export function ShowNote() {
       } else {
         noteTitle.style.color = "black";
         noteTitle.style.textDecoration = "none";
+        note.style.boxShadow = "4px 6px 7px -1px rgba(0,0,0,0.33)"
       }
     });
 

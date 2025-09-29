@@ -60,6 +60,7 @@ function NoteSectionForm(addButton) {
 
   const formInput = document.createElement("input");
   formInput.type = "text";
+  formInput.placeholder = "Add a section..."
   formInput.id = "section-input";
   formInput.required = true;
   navForm.appendChild(formInput);
