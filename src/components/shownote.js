@@ -9,20 +9,23 @@ export function AddNote(newNote) {
 // Bubble Sort
 function NoteSort() {
   const x = globalState.activeSection;
-  if (globalState.sections[x].length > 1) {
-    let index = 0;
-    while (index < globalState.sections[x].length - 1) {
-      if (
-        globalState.sections[x][index].priority >
-        globalState.sections[x][index + 1].priority
-      ) {
-        const temp = globalState.sections[x][index + 1];
-        globalState.sections[x][index + 1] = globalState.sections[x][index];
-        globalState.sections[x][index] = temp;
+  let notes = globalState.sections[x];
+
+  if (notes.length > 1) {
+    let swapped;
+    do {
+      swapped = false;
+      for (let i = 0; i < notes.length - 1; i++) {
+        if (notes[i].priority > notes[i + 1].priority) {
+          const temp = notes[i];
+          notes[i] = notes[i + 1];
+          notes[i + 1] = temp;
+          swapped = true;
+        }
       }
-      index += 1;
-    }
+    } while (swapped);
   }
+
   ShowNote();
 }
 
