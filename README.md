@@ -11,3 +11,6 @@ Involves:
 - Notes shown as a list on the page have the title and a circle showing the priority. 
 - Ability to cross out and uncross lists when completed. 
 - Info button shows a modal with the description and date when clicked. 
+
+Documentation 
+- Used date-fns to structure the date output. Simple date function

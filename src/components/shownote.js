@@ -4,6 +4,10 @@ import { format } from 'date-fns';
 export function AddNote(newNote) {
   globalState.sections[globalState.activeSection].push(newNote);
   NoteSort();
+  // Save to localStorage after adding note
+  if (window.saveToLocalStorage) {
+    window.saveToLocalStorage();
+  }
 }
 
 // Bubble Sort
@@ -71,6 +75,10 @@ export function ShowNote() {
         noteTitle.style.color = "black";
         noteTitle.style.textDecoration = "none";
         note.style.boxShadow = "4px 6px 7px -1px rgba(0,0,0,0.33)"
+      }
+      // Save to localStorage after toggling done status
+      if (window.saveToLocalStorage) {
+        window.saveToLocalStorage();
       }
     });
 

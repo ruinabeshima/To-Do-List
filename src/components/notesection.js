@@ -28,7 +28,12 @@ function ShowOtherContent(sectionName) {
 
   globalState.activeSection = sectionName;
   ShowNote(globalState.activeSection);
-  HighlightSection()
+  HighlightSection();
+  
+  // Save to localStorage after switching section
+  if (window.saveToLocalStorage) {
+    window.saveToLocalStorage();
+  }
 }
 
 export function MainContentListener() {
@@ -87,6 +92,11 @@ function AddNoteSection(addButton, navBar, inputValue) {
 
   // Create new sections object with array
   globalState.sections[inputValue.toLowerCase()] = [];
+
+  // Save to localStorage after adding section
+  if (window.saveToLocalStorage) {
+    window.saveToLocalStorage();
+  }
 
   // Event listener
   newButton.addEventListener("click", () => {
