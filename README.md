@@ -9,4 +9,5 @@ Involves:
 - Notes are listed on the main page based on their priority. 
   Red -> Orange -> Green for increasing priority. 
 - Notes shown as a list on the page have the title and a circle showing the priority. 
+- Ability to cross out and uncross lists when completed. 
 - Info button shows a modal with the description and date when clicked. 
